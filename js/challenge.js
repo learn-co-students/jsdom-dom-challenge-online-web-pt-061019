@@ -1,19 +1,32 @@
 const counter = document.getElementById("counter");
 
 const minusButton = document.getElementById("minus");
-count = 0;
 minusButton.onclick = function(){
-    count -= 1;
-    counter.innerHTML = count;
+    counter.innerHTML --;
 };
 
 const addButton = document.getElementById("plus");
-count = 0;
 addButton.onclick = function(){
-    count += 1;
-    counter.innerHTML = count;
+    counter.innerHTML++;
 };
 
-document.addEventListener("DOMContentLoaded", function(){
-    counter.innerHTML = count++;
-});
+document.addEventListener('DOMContentLoaded', function () {
+    let timer = setInterval(function() {
+        counter.innerHTML++;
+    }, 1000);
+
+    const commentsList = document.getElementById('list')
+    const commentForm = document.getElementById('comment-form')
+
+    commentForm.addEventListener('submit', function(event) {
+      event.preventDefault() //stop form from POSTING
+
+      const userInputField = event.target.querySelector('#comment-input')
+      const userInputString = userInputField.value
+      const newComment = document.createElement('li')
+
+      newComment.textContent = userInputString
+      commentsList.appendChild(newComment)
+  
+    });
+  });
