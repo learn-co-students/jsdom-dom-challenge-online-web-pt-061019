@@ -10,11 +10,6 @@ addButton.onclick = function(){
     counter.innerHTML++;
 };
 
-const likeButton = document.getElementById("heart")
-
-const pauseButton = document.getElementById("pause")
-
-
 document.addEventListener('DOMContentLoaded', function () {
     let timer = setInterval(function() {
         counter.innerHTML++;
@@ -34,4 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
       commentsList.appendChild(newComment)
   
     });
+
+    const pauseButton = document.getElementById("pause")
+    pauseButton.addEventListener('click', function(){
+        clearInterval(timer);
+        minusButton.disabled = true;
+        addButton.disabled = true;
+        this.innerText = "resume";
+    });
+
+    const likeButton = document.getElementById("heart")
+
+
   });
