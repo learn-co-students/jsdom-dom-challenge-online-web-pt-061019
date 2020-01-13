@@ -75,7 +75,7 @@ commentForm.addEventListener('submit', function(e) {
     let li = document.createElement('li');
     li.innerText = commentInput.value;
     showComment.appendChild(li);
-    event.target.reset();
+    e.target.reset();
 }, false);
 
 
