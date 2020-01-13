@@ -51,14 +51,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const likeButton = document.getElementById("heart")
-    let likeCounter = 1
+    let likesHash = {};
+    ///likeCounter = 1
     likeButton.addEventListener('click', function(){
         const likeList = document.querySelector(".likes")
         const newLike = document.createElement('li')
-        newLike.textContent = `${counter.innerHTML} has ${likeCounter++} likes`
-        likeList.appendChild(newLike);
+        let second = counter.innerHTML
+        
+            likesHash[second] = 1++
 
-    })
+        if counter.innerHTML === likesHash.key
+            likesHash.value = 1++
+            
+        newLike.textContent = `${counter.innerHTML} has ${} likes`
+        likeList.appendChild(newLike)
+    });
 
   });
 
