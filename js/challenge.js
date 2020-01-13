@@ -10,10 +10,15 @@ addButton.onclick = function(){
     counter.innerHTML++;
 };
 
+const likeButton = document.getElementById("heart")
+
+const pauseButton = document.getElementById("pause")
+
+
 document.addEventListener('DOMContentLoaded', function () {
     let timer = setInterval(function() {
         counter.innerHTML++;
-    }, 1000);
+    }, 1000); //starts timer
 
     const commentsList = document.getElementById('list')
     const commentForm = document.getElementById('comment-form')
