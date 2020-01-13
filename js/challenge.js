@@ -1,4 +1,5 @@
 const counter = document.getElementById("counter");
+let likesHash = {};
 
 const minusButton = document.getElementById("minus");
 minusButton.onclick = function(){
@@ -51,19 +52,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const likeButton = document.getElementById("heart")
-    let likesHash = {};
+
     ///likeCounter = 1
     likeButton.addEventListener('click', function(){
         const likeList = document.querySelector(".likes")
         const newLike = document.createElement('li')
         let second = counter.innerHTML
         
-            likesHash[second] = 1++
+        if (likesHash[second])
+            likesHash[second]++
+        else 
+            likesHash[second] = 1
 
-        if counter.innerHTML === likesHash.key
-            likesHash.value = 1++
-            
-        newLike.textContent = `${counter.innerHTML} has ${} likes`
+        // if counter.innerHTML === likesHash.key
+        //   likesHash.value = 1++
+
+        newLike.textContent = `${counter.innerHTML} has ${likesHash[second]} likes`
         likeList.appendChild(newLike)
     });
 
