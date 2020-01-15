@@ -23,19 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         decrementCounter()
     })
 
-    const commentsContainer = document.getElementById('commentsContainer')
-
-    const commentForm = document.getElementById('comment-form')
-    
-    commentForm.addEventListener('submit', (e) => {
+    let submitButton = document.querySelector('#submit')
+    let commentList = document.querySelector('#list')
+    submitButton.addEventListener('click', (e) => {
         e.preventDefault()
-        const userInputField = e.target.querySelector('#comment-input')
-        const userInputString = userInputField.value
-        const commentPTag = document.createElement('p')
-        commentPTag.textContent = userInputString
-
-        commentsContainer.appendChild(commentPTag)
-    
+        let comment = document.querySelector('#comment-form > input[type=text]').value
+        commentList.innerHTML += `<li>${comment}</li>`
+        document.querySelector('#comment-form').reset()
     })
 })
 
