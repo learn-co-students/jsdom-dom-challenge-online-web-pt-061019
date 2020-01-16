@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         likes.innerHTML += `<li id=${counter.innerText} > ${counter.innerText} is liked <span id=${counter.innerText}>1</span> times.</li>`
     })
 
-    pause.addEventListener("click", function(e){
+    pause.addEventListener("click", (e) => {
         if (pause.innerText === "pause"){
             pause.innerText = "resume"
             clearInterval(count)
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             submitButton.disabled = true
         }
         else {
-            count = setInterval(function () {
+            count = setInterval(() => {
                 counter.innerText++
             }, 1000)
             pause.innerText = "pause"
@@ -63,4 +63,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 })
-
