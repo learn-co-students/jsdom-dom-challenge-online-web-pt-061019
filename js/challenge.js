@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         countdown.innerText = newNum.toString()
     }
 
-    window.setInterval(incrementCounter, 2000)
+    let count = window.setInterval(incrementCounter, 2000)
 
     let plus = document.getElementById('plus')
     plus.addEventListener('click', () => {
@@ -38,6 +38,29 @@ document.addEventListener("DOMContentLoaded", () => {
         let obj = document.getElementById(`${counter.innerText}`)
         obj ? obj.children[0].innerText++ : 
         likes.innerHTML += `<li id=${counter.innerText} > ${counter.innerText} is liked <span id=${counter.innerText}>1</span> times.</li>`
+    })
+
+    pause.addEventListener("click", function(e){
+        if (pause.innerText === "pause"){
+            pause.innerText = "resume"
+            clearInterval(count)
+            
+            plus.disabled = true
+            minus.disabled = true
+            heart.disabled = true
+            submitButton.disabled = true
+        }
+        else {
+            count = setInterval(function () {
+                counter.innerText++
+            }, 1000)
+            pause.innerText = "pause"
+
+            plus.disabled = false
+            minus.disabled = false
+            heart.disabled = false
+            submitButton.disabled = false
+        }
     })
 })
 
