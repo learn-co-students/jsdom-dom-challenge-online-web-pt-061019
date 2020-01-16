@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         countdown.innerText = newNum.toString()
     }
 
-    window.setInterval(incrementCounter, 5000)
+    window.setInterval(incrementCounter, 2000)
 
     let plus = document.getElementById('plus')
     plus.addEventListener('click', () => {
@@ -30,6 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let comment = document.querySelector('#comment-form > input[type=text]').value
         commentList.innerHTML += `<li>${comment}</li>`
         document.querySelector('#comment-form').reset()
+    })
+
+    let heart = document.getElementById('heart')
+    let likes = document.querySelector('.likes')
+    heart.addEventListener('click', (e) => {
+        let obj = document.getElementById(`${counter.innerText}`)
+        obj ? obj.children[0].innerText++ : 
+        likes.innerHTML += `<li id=${counter.innerText} > ${counter.innerText} is liked <span id=${counter.innerText}>1</span> times.</li>`
     })
 })
 
