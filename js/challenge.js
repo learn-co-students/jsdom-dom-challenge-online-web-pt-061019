@@ -11,15 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   counter.innerText = parseInt(counter.innerText)
 
+
   // Increase time
   const incrementCounter = () => {
     counter.innerText++
   }
 
+
   // Decrease time
   const decrementCounter = () => {
     counter.innerText--
   }
+
 
   // 'Like' a time
   let numbersLiked = []
@@ -70,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  
   // Add a comment
   const addComment = (event) => {
     event.preventDefault()
@@ -81,10 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     commentsContainer.appendChild(p)
     form.reset()
   }
-    
-
-  
-
 
 
   // Event listeners
