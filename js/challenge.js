@@ -1,20 +1,21 @@
 const counter = document.getElementById("counter");
 let likesHash = {};
 
-const minusButton = document.getElementById("minus");
-minusButton.onclick = function(){
-    counter.innerHTML --;
-};
-
-const addButton = document.getElementById("plus");
-addButton.onclick = function(){
-    counter.innerHTML++;
-};
-
 document.addEventListener('DOMContentLoaded', function () {
     let timer = setInterval(function() {
         counter.innerHTML++;
     }, 1000); //starts timer
+
+    const minusButton = document.getElementById("minus");
+    minusButton.addEventListener('click', function() {
+        counter.innerHTML--;
+    });
+
+    const addButton = document.getElementById("plus");
+    addButton.addEventListener('click', function() {
+        counter.innerHTML++;
+    });
+
 
     const commentsList = document.getElementById('list')
     const commentForm = document.getElementById('comment-form')
@@ -52,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const likeButton = document.getElementById("heart")
-
-    ///likeCounter = 1
     likeButton.addEventListener('click', function(){
         const likeList = document.querySelector(".likes")
         const newLike = document.createElement('li')
@@ -63,32 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
             likesHash[second]++
         else 
             likesHash[second] = 1
-
-        // if counter.innerHTML === likesHash.key
-        //   likesHash.value = 1++
-
         newLike.textContent = `${counter.innerHTML} has ${likesHash[second]} likes`
         likeList.appendChild(newLike)
     });
 
   });
-
-  //let pauseButton = document.querySelector('#pause')
-    
-  //pauseButton.addEventListener('click', (e) => {
-    //currentCount = counterEl.textContent;
-
-    //if (pauseButton.innerText === "pause") {
-    //    clearInterval(startCounting);
-    //    document.getElementById('minus').disabled = true;
-      //  document.getElementById('plus').disabled = true;
-        //document.getElementById('heart').disabled = true;
-      //  pauseButton.textContent = "resume";
-    //} else {
-      //  document.getElementById('minus').disabled = false;
-      //  document.getElementById('plus').disabled = false;
-     //   document.getElementById('heart').disabled = false;
-     //   pauseButton.textContent = "pause";
-     //   counter(); // or sertInetrval fucntion here
-   // }
-//})
